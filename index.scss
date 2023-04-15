@@ -1,0 +1,124 @@
+//Variables
+$color: #cc6699;
+$orange: #ff6600;
+$font: 20px; 
+$horse-types: 'pony', 'horse', 'mini horse', 'maxi pony';
+$colors-list:  #ff9900 #77ff66 #73C227 #C23E50 #7BAFC2;
+$font-sizes: ("small": 12px, "normal": 18px, "large": 24px);
+
+//Mixins
+@mixin important-pic{
+	margin: 20px;
+ box-shadow: 0 0 20px red;
+}
+@mixin font-highlight($font-color){
+	font-size: 22px;
+	color: $font-color;
+	font-weight: bold;
+}
+
+//Nested selectors
+.foo{
+	background: yellow;
+
+	p{
+	color: blue;
+    font-size: 14px;
+	}
+}
+//Nested properties - mora : kod font propertija, ne zaboravi + Variables
+.foo_2{
+	color: $color;
+	font:{
+		size: $font;
+		family: arial;
+		weight: bold;
+
+	}
+}
+//extend classes
+.bord {
+border-style: solid;
+border-color: gray;
+ border-width: 5px;
+}
+.bord_new{
+	@extend .bord;
+	margin: 40px;
+	box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+//nested selectors - pseudo classes
+a {
+	  color: blue;
+  text-decoration: none; 
+    &:hover{
+  	color: orange;
+  }
+}
+//Color functions + nesting of selectors
+.backgr{
+	font-size: $font;
+ background: lighten($color, 25);
+ color : darken($orange, 30);
+.text_transparent{
+	color: transparentize(#0000ff, .5)
+}
+}
+//List functions
+.list_fn{
+	padding: 10px;
+}
+//STRING INTERPOLATION za content properti
+.list_fn::before{
+	content: "#{nth($horse-types, 2)}";
+}
+//postavljanje boja preko liste i for petlje
+@for $i from 1 through length($colors-list){
+	.list_#{$i} {
+		background-color: nth($colors-list, $i);
+		width: 30%;
+		height: 10%;
+		display: block;
+	}
+} 
+.two_lists{
+	padding: 5px;
+}
+.two_lists::before{
+	content: "#{join($horse-types, $colors-list, comma)}";
+}
+.slike img{
+	max-width: 50%;
+}
+//mixins
+.important_pic{
+	@include important-pic;
+}
+.vazan_text{
+@include font-highlight(blue);
+}
+.vazniji_text{
+@include font-highlight(red);
+}
+//map functions
+//iskoristi font za odredjeni text.
+.map_style{
+	font-size: map-get($font-sizes, "large");
+}
+//sa content get values 
+.map_content{
+	padding: 16px;
+}
+.map_content::before{
+	content:  "#{map-values($font-sizes)}";
+}
+
+/* Za ovo - <p class="replace">Replaced selector class</p>
+selector functions
+.replace{
+	color: green;
+}
+.new_p{
+	color: orange;
+}
+selector-replace("p.replace", ".replace", ".new_p");*/

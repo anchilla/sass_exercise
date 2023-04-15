@@ -1,0 +1,138 @@
+.foo {
+  background: yellow;
+}
+.foo p {
+  color: blue;
+  font-size: 14px;
+}
+
+.foo_2 {
+  color: #cc6699;
+  font-size: 20px;
+  font-family: arial;
+  font-weight: bold;
+}
+
+.bord, .bord_new {
+  border-style: solid;
+  border-color: gray;
+  border-width: 5px;
+}
+
+.bord_new {
+  margin: 40px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+a:hover {
+  color: orange;
+}
+
+.backgr {
+  font-size: 20px;
+  background: #ecc6d9;
+  color: #662900;
+}
+.backgr .text_transparent {
+  color: rgba(0, 0, 255, 0.5);
+}
+
+.list_fn {
+  padding: 10px;
+}
+
+.list_fn::before {
+  content: "horse";
+}
+
+.list_1 {
+  background-color: #ff9900;
+  width: 30%;
+  height: 10%;
+  display: block;
+}
+
+.list_2 {
+  background-color: #77ff66;
+  width: 30%;
+  height: 10%;
+  display: block;
+}
+
+.list_3 {
+  background-color: #73C227;
+  width: 30%;
+  height: 10%;
+  display: block;
+}
+
+.list_4 {
+  background-color: #C23E50;
+  width: 30%;
+  height: 10%;
+  display: block;
+}
+
+.list_5 {
+  background-color: #7BAFC2;
+  width: 30%;
+  height: 10%;
+  display: block;
+}
+
+.two_lists {
+  padding: 5px;
+}
+
+.two_lists::before {
+  content: "pony, horse, mini horse, maxi pony, #ff9900, #77ff66, #73C227, #C23E50, #7BAFC2";
+}
+
+.slike img {
+  max-width: 50%;
+}
+
+.important_pic {
+  margin: 20px;
+  box-shadow: 0 0 20px red;
+}
+
+.vazan_text {
+  font-size: 22px;
+  color: blue;
+  font-weight: bold;
+}
+
+.vazniji_text {
+  font-size: 22px;
+  color: red;
+  font-weight: bold;
+}
+
+.map_style {
+  font-size: 24px;
+}
+
+.map_content {
+  padding: 16px;
+}
+
+.map_content::before {
+  content: "12px, 18px, 24px";
+}
+
+/* Za ovo - <p class="replace">Replaced selector class</p>
+selector functions
+.replace{
+	color: green;
+}
+.new_p{
+	color: orange;
+}
+selector-replace("p.replace", ".replace", ".new_p");*/
+
+/*# sourceMappingURL=index.css.map */
